@@ -29,5 +29,7 @@ namespace MVCTest.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<MVCTest.Models.Persona> Personas { get; set; }
     }
 }
