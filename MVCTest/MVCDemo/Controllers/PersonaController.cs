@@ -91,7 +91,5 @@ namespace MVCDemo.Controllers
             db.Personas.Remove(db.Personas.Find(x => x.PersonaID == id));
             return RedirectToAction("Index");
         }
-
-        //Ejemplo de cambio indeseado
     }
 }
