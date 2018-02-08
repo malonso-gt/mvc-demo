@@ -68,6 +68,23 @@ namespace MVCDemo.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Persona persona = db.Personas.Find(x => x.PersonaID == id);
+
+            if (persona == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(persona);
+        }
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id) {
