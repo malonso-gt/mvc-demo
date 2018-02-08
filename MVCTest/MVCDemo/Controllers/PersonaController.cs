@@ -67,5 +67,12 @@ namespace MVCDemo.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id) {
+            db.Personas.Remove(db.Personas.Find(x => x.PersonaID == id));
+            return RedirectToAction("Index");
+        }
     }
 }
