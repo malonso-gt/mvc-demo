@@ -28,6 +28,7 @@ namespace MVCDemo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PersonaID,Nombre,Apellido,Edad")] Persona persona) {
             if (ModelState.IsValid) {
+                persona.PersonaID = ++db.IdActual; //Increment Persona ID
                 db.Personas.Add(persona);
                 return RedirectToAction("Index");
             }

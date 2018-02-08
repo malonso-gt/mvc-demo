@@ -10,8 +10,12 @@ namespace MVCDemo.DbContext
     {
         private static volatile DefaultConnection instance;
         private static object syncRoot = new Object();
+        private DefaultConnection() {
+            IdActual = 0;
+        }
 
         public List<Persona> Personas = new List<Persona>();
+        public int IdActual { get; set; }
 
         public static DefaultConnection Instance
         {

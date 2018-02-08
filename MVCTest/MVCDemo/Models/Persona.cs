@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MVCDemo.Models
 {
-    public sealed class Persona
+    public sealed class Persona : IComparable
     {
 
         public int PersonaID { get; set; }
@@ -15,5 +15,15 @@ namespace MVCDemo.Models
         public string Apellido { get; set; }
 
         public int Edad { get; set; }
+
+        public int CompareTo(Object persona)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int CompareTo(Persona persona)
+        {
+            return this.PersonaID.CompareTo(persona.PersonaID);
+        }
     }
 }
